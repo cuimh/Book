@@ -18,7 +18,7 @@ import java.util.List;
  * 内容分类管理service
  * <p>Title: ContentCategoryServiceImpl</p>
  * <p>Description: </p>
- * <p>Company: www.itcast.cn</p> 
+ * <p>Company: www.itcast.cn</p>
  * @version 1.0
  */
 @Service
@@ -26,7 +26,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	@Autowired
 	private TbContentCategoryMapper contentCategoryMapper;
-	
+
 	@Override
 	public List<EasyUITreeNode> getContentCategoryList(long parentId) {
 		//根据parentId查询子节点列表
@@ -36,7 +36,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		criteria.andParentIdEqualTo(parentId);
 		//执行查询
 		List<TbContentCategory> list = contentCategoryMapper.selectByExample(example);
-		List<EasyUITreeNode> resultList = new ArrayList<>();
+		List<EasyUITreeNode> resultList = new ArrayList<EasyUITreeNode>();
 		for (TbContentCategory tbContentCategory : list) {
 			EasyUITreeNode node = new EasyUITreeNode();
 			node.setId(tbContentCategory.getId());
@@ -72,7 +72,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 			//更新父节点
 			contentCategoryMapper.updateByPrimaryKey(parent);
 		}
-			
+
 		//返回结果
 		return TaotaoResult.ok(contentCategory);
 	}

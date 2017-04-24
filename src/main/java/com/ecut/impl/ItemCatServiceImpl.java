@@ -36,7 +36,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 		//执行查询
 		List<TbItemCat> list = itemCatMapper.selectByExample(example);
 		//转换成EasyUITreeNode列表
-		List<EasyUITreeNode> resultList = new ArrayList<>();
+		List<EasyUITreeNode> resultList = new ArrayList<EasyUITreeNode>();
 		for (TbItemCat tbItemCat : list) {
 			EasyUITreeNode node = new EasyUITreeNode();
 			node.setId(tbItemCat.getId());

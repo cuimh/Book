@@ -85,7 +85,7 @@ public class ItemServiceImpl implements ItemService {
 		TbItemExample example = new TbItemExample();
 		List<TbItem> list = itemMapper.selectByExample(example);
 		//取查询结果
-		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
+		PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(list);
 		EasyUIDataGridResult result = new EasyUIDataGridResult();
 		result.setRows(list);
 		result.setTotal(pageInfo.getTotal());

@@ -37,7 +37,7 @@ public class SearchDao {
 		long numFound = solrDocumentList.getNumFound();
 		SearchResult result = new SearchResult();
 		result.setRecordCount(numFound);
-		List<SearchItem> itemList = new ArrayList<>();
+		List<SearchItem> itemList = new ArrayList<SearchItem>();
 		//把查询结果封装到SearchItem对象中
 		for (SolrDocument solrDocument : solrDocumentList) {
 			SearchItem item = new SearchItem();
@@ -49,7 +49,7 @@ public class SearchDao {
 				image = image.split(",")[0];
 			}
 			item.setImage(image);
-			item.setPrice((long) solrDocument.get("item_price"));
+			item.setPrice((Long)solrDocument.get("item_price"));
 			item.setSell_point((String) solrDocument.get("item_sell_point"));
 			//取高亮显示
 			Map<String, Map<String, List<String>>> highlighting = response.getHighlighting();

@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
 		}
 		//判断用户名是否重复
 		TaotaoResult taotaoResult = checkData(user.getUsername(), 1);
-		if (!(boolean) taotaoResult.getData()) {
+		if (!(Boolean) taotaoResult.getData()) {
 			return TaotaoResult.build(400, "用户名重复");
 		}
 		//判断密码是否为空
@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
 		if (StringUtils.isNotBlank(user.getPhone())) {
 			//是否重复校验
 			taotaoResult = checkData(user.getPhone(), 2);
-			if (!(boolean) taotaoResult.getData()) {
+			if (!(Boolean) taotaoResult.getData()) {
 				return TaotaoResult.build(400, "电话号码重复");
 			}
 		}
@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
 		if (StringUtils.isNotBlank(user.getEmail())) {
 			//是否重复校验
 			taotaoResult = checkData(user.getEmail(), 3);
-			if (!(boolean) taotaoResult.getData()) {
+			if (!(Boolean) taotaoResult.getData()) {
 				return TaotaoResult.build(400, "email重复");
 			}
 		}
